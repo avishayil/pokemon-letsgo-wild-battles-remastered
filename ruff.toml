@@ -1,0 +1,16 @@
+# Lint rules for the Python in this repository (CI runs `ruff check .`).
+# Names follow Python's conventions (PEP 8): snake_case functions and variables, UPPER_SNAKE constants,
+# CapWords classes. Line length is not enforced: the generator's instruction tables read better wide.
+target-version = "py310"
+
+[lint]
+select = [
+    "F",    # pyflakes: unused or duplicate imports and variables, undefined names
+    "E7",   # one statement per line (E701/E702), ambiguous names like l/O/I (E741), comparisons
+    "E9",   # syntax errors
+    "N",    # pep8-naming
+    "W6",   # deprecated escapes
+]
+ignore = [
+    "E731", # lambda assignments are used for short address helpers in the instruction tables
+]

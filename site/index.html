@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+  <title>Wild Battles Remastered | Real wild battles in Pokémon: Let's Go, Pikachu! and Eevee!</title>
+  <meta name="description" content="A free mod that turns wild encounters in Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! into real turn-based battles, with real EXP for a knockout and catching from the battle menu.">
+  <link rel="canonical" href="{{SITE_URL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wild Battles Remastered">
+  <meta property="og:description" content="Real turn-based wild battles, with EXP and catching, for Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! v1.0.2.">
+  <meta property="og:url" content="{{SITE_URL}}">
+</head>
+<body>
+{{> sprite}}
+
+{{> header active=index}}
+
+<main id="main">
+  <!-- ===== hero ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"><svg width="12" height="12"><use href="#i-bolt"/></svg></span> v{{VERSION}} · Free · for Let's Go, Pikachu! &amp; Eevee! v1.0.2</span>
+        <h1 id="hero-title">Real <span class="hl">wild battles</span> in Let's Go, Pikachu! &amp; Eevee!</h1>
+        <p class="lede">Walk into a wild Pokémon and fight it the classic way, turn by turn. Knock it out and your team earns real EXP. Weaken it, press <kbd>Y</kbd>, and catch it.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="{{ZIP_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Download for Pikachu</a>
+          <a class="btn btn-eevee" href="{{ZIP_EEVEE_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Download for Eevee</a>
+          <a class="btn btn-ghost" href="#get-started">Get started <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="hero-meta">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Free and open source</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> One small mod file</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> No game files included</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> <a href="testing.html">Tested in live play</a></li>
+        </ul>
+      </div>
+      <div class="screen-wrap reveal">
+        <div class="ring" aria-hidden="true"></div>
+        <div class="motes" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="screen">
+          <video data-hero-video autoplay muted loop playsinline preload="metadata" poster="assets/video/gameplay-poster.webp"
+                 width="640" height="360" aria-label="Gameplay: a wild Caterpie battle, Pikachu wins and earns EXP">
+            <source src="assets/video/gameplay.mp4" type="video/mp4">
+          </video>
+          <button class="video-toggle" type="button" data-video-toggle hidden aria-label="Pause the gameplay video">
+            <svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+            <svg class="i-play" aria-hidden="true" hidden><use href="#i-play"/></svg>
+          </button>
+        </div>
+        <span class="chip-float exp" aria-hidden="true"><svg><use href="#i-sparkle"/></svg> Real EXP</span>
+        <span class="chip-float catch" aria-hidden="true"><svg><use href="#i-target"/></svg> Catch with Y</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== features ===== -->
+  <section class="section section-alt" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker">What you get</span>
+        <h2 id="features-title">The battles Let's Go was missing</h2>
+        <p>The download has every feature switched on, and you can change each one later in the game's own Options menu.</p>
+      </div>
+      <div class="features">
+        <article class="card reveal">
+          <img class="shot" src="assets/img/01-wild-battle-640.webp" srcset="assets/img/01-wild-battle-640.webp 640w, assets/img/01-wild-battle.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="A turn-based battle against a wild Rattata, with the Fight menu open">
+          <div class="card-body">
+            <span class="type-chip t-electric"><i aria-hidden="true"><svg><use href="#i-bolt"/></svg></i> Battle</span>
+            <h3>Turn-based wild battles</h3>
+            <p>Every wild encounter becomes a classic battle: Fight, Pokémon, Bag and Run.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <img class="shot" src="assets/img/03-native-exp-640.webp" srcset="assets/img/03-native-exp-640.webp 640w, assets/img/03-native-exp.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="Pikachu got 14 Exp. Points after a wild battle">
+          <div class="card-body">
+            <span class="type-chip t-grass"><i aria-hidden="true"><svg><use href="#i-leaf"/></svg></i> Growth</span>
+            <h3>Real EXP for a knockout</h3>
+            <p>The game's own EXP amounts, with level-ups, new moves and evolutions.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <img class="shot" src="assets/img/06-pidgey-battle-640.webp" srcset="assets/img/06-pidgey-battle-640.webp 640w, assets/img/06-pidgey-battle.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="A wild Pidgey battle with both HP bars and the command menu">
+          <div class="card-body">
+            <span class="type-chip t-water"><i aria-hidden="true"><svg><use href="#i-drop"/></svg></i> Team</span>
+            <h3>Only the battlers level up</h3>
+            <p>In every battle, wild or Trainer, EXP goes to the Pokémon that fought. Switch someone in and they share it.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <img class="shot" src="assets/img/07-catch-no-exp-640.webp" srcset="assets/img/07-catch-no-exp-640.webp 640w, assets/img/07-catch-no-exp.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="Catch result for a Geodude: bonus multiplier 3.0, a Tough Candy, and 0 Exp. Points">
+          <div class="card-body">
+            <span class="type-chip t-fire"><i aria-hidden="true"><svg><use href="#i-target"/></svg></i> Catch</span>
+            <h3>Catch what you battle</h3>
+            <p>Bring a wild Pokémon to 25% HP or less, press <kbd>Y</kbd>, and throw a ball in the game's own catch scene.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <img class="shot" src="assets/img/04-evolution-640.webp" srcset="assets/img/04-evolution-640.webp 640w, assets/img/04-evolution.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="A Pokémon evolving after a battle">
+          <div class="card-body">
+            <span class="type-chip t-electric"><i aria-hidden="true"><svg><use href="#i-sparkle"/></svg></i> Progress</span>
+            <h3>Grow by battling</h3>
+            <p>Catching gives no EXP, so your team gets stronger by fighting. The catch summary and its candy reward still show.</p>
+          </div>
+        </article>
+        <article class="card reveal">
+          <img class="shot" src="assets/img/02-wild-faint-640.webp" srcset="assets/img/02-wild-faint-640.webp 640w, assets/img/02-wild-faint.webp 1280w" sizes="(max-width: 620px) 100vw, 380px" width="640" height="360" loading="lazy" alt="A wild Pokémon fainting at the end of a battle">
+          <div class="card-body">
+            <span class="type-chip t-grass"><i aria-hidden="true"><svg><use href="#i-check"/></svg></i> Polish</span>
+            <h3>Clean, quick battles</h3>
+            <p>Wild Pokémon faint cleanly, there's no 5-minute timer, and a Poké Ball by the HP box shows when you've caught that species before.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== get started ===== -->
+  <section class="section" id="get-started" aria-labelledby="start-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker">Get started</span>
+        <h2 id="start-title">Playing in three steps</h2>
+        <p>It takes about two minutes. You'll need Pokémon: Let's Go, Pikachu! or Let's Go, Eevee! with the 1.0.2 update, on a platform that supports IPSwitch (<code>.pchtxt</code>) patches.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Download the mod for your game</h3>
+          <p>One small zip file per game. Each one only works on its own game.</p>
+          <div class="cta-row tight">
+            <a class="btn btn-primary btn-sm" href="{{ZIP_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Pikachu</a>
+            <a class="btn btn-eevee btn-sm" href="{{ZIP_EEVEE_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Eevee</a>
+          </div>
+        </li>
+        <li class="step reveal">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Add it to your game</h3>
+          <p>Install it like any IPSwitch (<code>.pchtxt</code>) patch mod on your platform, then make sure <b>Wild Battles Remastered</b> is enabled. Tested on the Eden emulator.</p>
+          <a class="btn btn-ghost btn-sm" href="install.html">Step-by-step guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li class="step reveal">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Back up, then play</h3>
+          <p>Back up your save, start the game, and walk into a wild Pokémon. The battle starts right away, even on a brand-new game.</p>
+        </li>
+      </ol>
+      <div class="callout reveal" role="note">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <div>
+          <strong>Before you start</strong>
+          <ul>
+            <li>Pokémon: Let's Go, Pikachu! or Let's Go, Eevee! with the <b>1.0.2 update</b>, and the zip made for that game.</li>
+            <li>Your own legally owned copy of the game. This project includes no game files.</li>
+            <li>No other wild-battle, EXP or catching mod turned on at the same time.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== gallery ===== -->
+  <section class="section section-alt" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">See it in action</span>
+        <h2 id="gallery-title">From the first encounter to evolution</h2>
+      </div>
+      <div class="gallery">
+        <a class="g-a reveal" href="assets/img/01-wild-battle.webp" data-full="assets/img/01-wild-battle.webp" data-caption="A turn-based wild battle"><img src="assets/img/01-wild-battle.webp" width="1280" height="720" loading="lazy" alt="Turn-based battle against a wild Rattata"><span class="cap">Turn-based wild battle</span></a>
+        <a class="g-b reveal" href="assets/img/03-native-exp.webp" data-full="assets/img/03-native-exp.webp" data-caption="Real EXP for a knockout"><img src="assets/img/03-native-exp-640.webp" width="640" height="360" loading="lazy" alt="Pikachu got 14 Exp. Points"><span class="cap">Real EXP</span></a>
+        <a class="g-c reveal" href="assets/img/07-catch-no-exp.webp" data-full="assets/img/07-catch-no-exp.webp" data-caption="The catch summary: 0 EXP from catching"><img src="assets/img/07-catch-no-exp-640.webp" width="640" height="360" loading="lazy" alt="Catch result card showing 0 Exp. Points and a Tough Candy"><span class="cap">Caught it</span></a>
+        <a class="g-d reveal" href="assets/img/02-wild-faint.webp" data-full="assets/img/02-wild-faint.webp" data-caption="Wild Pokémon faint cleanly"><img src="assets/img/02-wild-faint-640.webp" width="640" height="360" loading="lazy" alt="A wild Pokémon fainting"><span class="cap">Clean faint</span></a>
+        <a class="g-e reveal" href="assets/img/04-evolution.webp" data-full="assets/img/04-evolution.webp" data-caption="Level up and evolve"><img src="assets/img/04-evolution-640.webp" width="640" height="360" loading="lazy" alt="A Pokémon evolving"><span class="cap">Evolution</span></a>
+        <a class="g-f reveal" href="assets/img/06-pidgey-battle.webp" data-full="assets/img/06-pidgey-battle.webp" data-caption="Every wild species, every route"><img src="assets/img/06-pidgey-battle-640.webp" width="640" height="360" loading="lazy" alt="A wild Pidgey battle"><span class="cap">Every species</span></a>
+        <a class="g-g reveal" href="assets/img/05-overworld.webp" data-full="assets/img/05-overworld.webp" data-caption="Straight back to the overworld"><img src="assets/img/05-overworld-640.webp" width="640" height="360" loading="lazy" alt="Back in the overworld after a battle"><span class="cap">Back to exploring</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== settings ===== -->
+  <section class="section" id="settings" aria-labelledby="settings-title">
+    <div class="container app-grid">
+      <div class="window reveal">
+        <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="assets/img/08-options-640.webp" srcset="assets/img/08-options-640.webp 640w, assets/img/08-options.webp 1280w" sizes="(max-width: 960px) 100vw, 600px" width="640" height="342" loading="lazy" alt="The mod's own page in the game's Options menu: Wild Battles, Quick Catch, Exp. Share, Catch Exp., Battle Timer, Caught Marker, Return to Ball and Trade Evolution">
+      </div>
+      <div class="reveal">
+        <span class="kicker">Settings</span>
+        <h2 id="settings-title">Change it in the game</h2>
+        <p class="lede mt-4 text-muted">The mod has its own page in the game's <b>Options</b> menu. Go to the last row, <b>Wild Battles Settings</b>, and press <kbd>A</kbd> (or left or right) to open it. Your choices are kept in your save.</p>
+        <ul class="feature-list">
+          <li><b>Wild Battles</b>: on, or off for the game's normal catching.</li>
+          <li><b>Quick Catch</b>: catch with <kbd>Y</kbd> at 25% HP, 50%, any HP, or not at all.</li>
+          <li><b>Exp. Share</b>: battlers only, the whole party in Trainer battles, or always the whole party.</li>
+          <li><b>Catch Exp.</b>, <b>Battle Timer</b>, <b>Caught Marker</b> and <b>Return to Ball</b>: on or off.</li>
+          <li><b>Trade Evolution</b>: Kadabra, Machoke, Graveler and Haunter evolve from Lv. 30, 40 or 50, or only by trading.</li>
+        </ul>
+        <p class="note">In your game's language. On and Off are the game's own words; the rest is our translation, and <a href="{{REPO_URL}}/issues">corrections are welcome</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== faq ===== -->
+  <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <h2 id="faq-title">FAQ</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>Does it work with Let's Go, Eevee!?</summary><div class="answer"><p>Yes. There's a separate mod for <b>Pokémon: Let's Go, Eevee!</b> (1.0.2 update) with the same features. Download <code>{{ZIP_EEVEE_NAME}}</code>; each mod only works on its own game.</p></div></details>
+        <details class="reveal"><summary>Where can I play it?</summary><div class="answer"><p>On any platform that supports IPSwitch (<code>.pchtxt</code>) patches; it was developed and tested on the <a href="https://git.eden-emu.dev/eden-emu/eden">Eden</a> emulator. For a modded Switch there's an Atmosphère download (<a href="{{ZIP_ATMO_URL}}">Pikachu</a>, <a href="{{ZIP_EEVEE_ATMO_URL}}">Eevee</a>) with the same patch; it hasn't been tried on a real Switch yet, so <a href="{{REPO_URL}}/issues">tell us</a> how it goes. Play offline only.</p></div></details>
+        <details class="reveal"><summary>Can I use it with other mods?</summary><div class="answer"><p>Use it on its own. It already includes everything for wild battles, EXP and catching, so turn off any other mod that changes those.</p></div></details>
+        <details class="reveal"><summary>How do I catch a Pokémon?</summary><div class="answer"><p>In a wild battle, bring the wild Pokémon down to <b>25% HP or less</b> (its HP bar turns red), then press <kbd>Y</kbd>. You'll go straight into the game's catch scene. Above 25%, <kbd>Y</kbd> does what it normally does.</p></div></details>
+        <details class="reveal"><summary>Why doesn't catching give EXP?</summary><div class="answer"><p>So your team grows by battling. The catch summary and its candy reward still show. If you'd like the game's normal catch EXP back, turn <b>Catch Exp.</b> on in the mod's settings page.</p></div></details>
+        <details class="reveal"><summary>Do I need to unlock anything first?</summary><div class="answer"><p>No. It works from the very start of a new game. Before "Play with Pikachu" or "Play with Eevee" is unlocked, the mod switches your partner on just for its own wild battles and back off afterwards, so your partner appears and battles normally and your story progress isn't changed.</p></div></details>
+        <details class="reveal"><summary>How well is it tested?</summary><div class="answer"><p>Every feature was played live on v{{VERSION}} in both games, and EXP was checked in the saved game before and after each test. Let's Go, Pikachu! was played from the early routes to Cerulean City, and Let's Go, Eevee! from the very start of a new game. The <a href="testing.html">testing page</a> lists every check and what still needs testers.</p></div></details>
+        <details class="reveal"><summary>Is my save safe?</summary><div class="answer"><p>The mod doesn't change your progress. The only thing it keeps in your save is its own settings, in spare bits of the game's Options settings that the game doesn't use. Still, back up your save before trying any mod.</p></div></details>
+        <details class="reveal"><summary>Can I play the original game again?</summary><div class="answer"><p>Yes, any time. Set <b>Wild Battles</b> to Off in the mod's settings page (Options → <b>Wild Battles Settings</b>) and wild Pokémon are caught the usual way again. Turn it back on whenever you like.</p></div></details>
+        <details class="reveal"><summary>Is this legal? Where do I get the game?</summary><div class="answer"><p>It's a free fan project that contains no game code, files or keys. You need your own legally owned copy of the game and its 1.0.2 update. See the <a href="{{REPO_URL}}/blob/main/DISCLAIMER.md">disclaimer</a>.</p></div></details>
+      </div>
+      <div class="callout warn reveal measure-narrow" role="note">
+        <svg aria-hidden="true"><use href="#i-alert"/></svg>
+        <div>
+          <strong>Known limitations in this beta</strong>
+          <ul>
+            <li>Let's Go, Eevee! has been played through its first routes so far, including a Trainer battle; the rest of its story hasn't been tested yet.</li>
+            <li>Going by the game's code, legendary and special encounters (Snorlax, the legendary birds, Mewtwo, the Power Plant Electrode) should play as in the original game, but nobody has played one with the mod yet. Save before one.</li>
+            <li>The Atmosphère download hasn't been tried on a real Switch yet.</li>
+            <li>After a catch, an empty party bar shows for a moment. That's the game's own "no EXP to give" screen.</li>
+          </ul>
+          <p class="mt-2">See <a href="testing.html">what's been tested</a>. Found a problem? <a href="{{REPO_URL}}/issues">Tell us on GitHub</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== final cta ===== -->
+  <section class="section" aria-labelledby="final-title">
+    <div class="container">
+      <div class="final reveal">
+        <h2 id="final-title">Ready for a real wild battle?</h2>
+        <p>Download the mod for your game, add it, and go find a wild Pokémon.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="{{ZIP_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Download for Pikachu</a>
+          <a class="btn btn-eevee" href="{{ZIP_EEVEE_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Download for Eevee</a>
+          <a class="btn btn-ghost" href="install.html">Read the install guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="credits-strip">
+  <div class="container">
+    <p>Inspired by Rico Santos' original <i>Wild Battles</i> and <i>Win or Catch</i> mods and by feelingdev's <i>The Better Let's Go</i>, with research from raulzrrs' <i>letsgo-recomp</i>, and made with free tools like Eden, Ghidra and Capstone. <a href="{{REPO_URL}}/blob/main/CREDITS.md">See the full credits</a>.</p>
+  </div>
+</div>
+
+{{> footer active=index}}
+
+<dialog class="lightbox" aria-label="Screenshot viewer">
+  <img src="assets/img/01-wild-battle.webp" alt="" width="1280" height="720">
+  <div class="lightbox-bar">
+    <p data-caption></p>
+    <div class="controls">
+      <button class="round-btn" type="button" data-prev aria-label="Previous screenshot"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button class="round-btn" type="button" data-next aria-label="Next screenshot"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+      <button class="round-btn" type="button" data-close aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+  </div>
+</dialog>
+</body>
+</html>

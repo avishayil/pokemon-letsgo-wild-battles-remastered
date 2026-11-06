@@ -1,0 +1,931 @@
+{
+  "nsobid": "5831EC64D6B696FD69E69505821B97B100000000000000000000000000000000",
+  "base": "self",
+  "profile": "classic",
+  "hp_gate": "strict",
+  "exp_recipients": "participants",
+  "battle_exp_scope": "all",
+  "catch_exp": "off",
+  "catch_action": "x-lowhp",
+  "cave_base": "0xd32ba8",
+  "cave_end": "0xd32ff8",
+  "modules": {
+    "A": {
+      "hook": "0x28bf64",
+      "cave": "0xd32ba8",
+      "words": 24,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "instant-end clears +0x34, armed +0xFC; clears the battle timer (evt+0x562)"
+    },
+    "C": {
+      "hook": "0xa9c640",
+      "cave": "0xd32c08",
+      "words": 28,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "entries +0xB0, no-joint answers +0xD8; only in our wild battles (+0xF8)"
+    },
+    "ST": {
+      "hook": "0x28bd50",
+      "cave": "0xd32c78",
+      "words": 60,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "state +0x40, states seen +0x44, battle +0x48, result object +0x50, result +0x58, entries +0x5C, KO rewrites +0xE0, armed/done/have/evolve +0xFC..+0xFF"
+    },
+    "R": {
+      "hook": "0x9e41c0",
+      "cave": "0xd32d68",
+      "words": 20,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "wild HP +0xC8, species +0xCC, max HP +0xD0, slot +0xD4, have +0xFE; only in our wild battles"
+    },
+    "E": {
+      "hook": "0x319ef4",
+      "cave": "0xd32db8",
+      "words": 21,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "evolve pending +0xFF; clears the wild-battle flag +0xF8; reads and clears catch intent +0xDC"
+    },
+    "P": {
+      "hook": "0x9d8a20",
+      "cave": "0xd32e0c",
+      "words": 23,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "EXP-gate hits +0xE4; only in our wild battles (+0xF8)"
+    },
+    "M": {
+      "hook": "0x3059e8",
+      "cave": "0xd32e68",
+      "words": 8,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "sets the wild-battle flag +0xF8"
+    },
+    "N": {
+      "hook": "0xaa0d3c",
+      "cave": "0xd32e88",
+      "words": 41,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "no-recall runs +0x6C; only in our wild battles (+0xF8)"
+    },
+    "X": {
+      "hook": "0xa67e20",
+      "cave": "0xd32f2c",
+      "words": 9,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "Exp. Share bytes zeroed +0x38; every battle"
+    },
+    "WCH": {
+      "hook": "0xac0590",
+      "cave": "0xd32f50",
+      "words": 12,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "wild battle parameters +0xB8 (each wild-slot update); reads +0xF8 and the slot +0x87"
+    },
+    "WCA": {
+      "hook": "0xf9824c",
+      "cave": "0xd32f80",
+      "words": 19,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "sets catch intent +0xDC (with cave_after_battle); reads the wild parameters +0xB8 and checks its HP at the press"
+    },
+    "G": {
+      "hook": "0xaaf170",
+      "cave": "0xd32fcc",
+      "words": 11,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "no own slots; reads +0xF8/+0xDC (skips the flee-text window mid-catch)"
+    },
+    "XF": {
+      "hook": "0x82d3c0",
+      "cave": "0x82d3c0",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; catch-EXP formula 0x82d3f0 returns 0 (no catch EXP)",
+      "inplace": true
+    },
+    "XG": {
+      "hook": "0x8303e0",
+      "cave": "0x8303e0",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; catch-EXP gate 0x830410 returns false (no EXP screen after a catch)",
+      "inplace": true
+    },
+    "UG": {
+      "hook": "0xb78dc",
+      "cave": "0xb78dc",
+      "words": 5,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe resource helper 0xb78a0 (wild battles before the partner unlock)",
+      "inplace": true
+    },
+    "UH": {
+      "hook": "0x155800",
+      "cave": "0x155800",
+      "words": 1,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; 0x1557d0 entry -> its NULL check in its own padding (UHP)",
+      "inplace": true
+    },
+    "UHP": {
+      "hook": "0x155854",
+      "cave": "0x155854",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL check in the 3 padding words after 0x1557d0",
+      "inplace": true
+    },
+    "UI": {
+      "hook": "0x159778",
+      "cave": "0x159778",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe helper 0x159778 (pre-unlock battle intro)",
+      "inplace": true
+    },
+    "UJ": {
+      "hook": "0xb6cc0",
+      "cave": "0xb6cc0",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe helper 0xb6cc0 (pre-unlock battle intro)",
+      "inplace": true
+    },
+    "UK": {
+      "hook": "0xb64e4",
+      "cave": "0xb64e4",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe helper 0xb64e4 (pre-unlock battle intro)",
+      "inplace": true
+    },
+    "UB00": {
+      "hook": "0xb52d8",
+      "cave": "0xb52d8",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb5290 (mov2)",
+      "inplace": true
+    },
+    "UB01": {
+      "hook": "0xb55b0",
+      "cave": "0xb55b0",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb5570 (mov2)",
+      "inplace": true
+    },
+    "UB02": {
+      "hook": "0xb56e0",
+      "cave": "0xb56e0",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb56a0 (mov2)",
+      "inplace": true
+    },
+    "UB03": {
+      "hook": "0xb593c",
+      "cave": "0xb593c",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb58f0 (mov2)",
+      "inplace": true
+    },
+    "UB04": {
+      "hook": "0xb6034",
+      "cave": "0xb6034",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb5ff0 (mov2)",
+      "inplace": true
+    },
+    "UB05": {
+      "hook": "0xb6768",
+      "cave": "0xb6768",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb6720 (mov2)",
+      "inplace": true
+    },
+    "UB06": {
+      "hook": "0xb6934",
+      "cave": "0xb6934",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb68f0 (mov2)",
+      "inplace": true
+    },
+    "UB07": {
+      "hook": "0xb6b04",
+      "cave": "0xb6b04",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb6ac0 (mov2)",
+      "inplace": true
+    },
+    "UB08": {
+      "hook": "0xb6e90",
+      "cave": "0xb6e90",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb6e50 (mov2)",
+      "inplace": true
+    },
+    "UB09": {
+      "hook": "0xb7044",
+      "cave": "0xb7044",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb7000 (mov2)",
+      "inplace": true
+    },
+    "UB10": {
+      "hook": "0xb7204",
+      "cave": "0xb7204",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb71c0 (mov2)",
+      "inplace": true
+    },
+    "UB11": {
+      "hook": "0x10bce8",
+      "cave": "0x10bce8",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0x10bcb0 (mov2)",
+      "inplace": true
+    },
+    "UB12": {
+      "hook": "0x10c068",
+      "cave": "0x10c068",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0x10c030 (mov2)",
+      "inplace": true
+    },
+    "UB13": {
+      "hook": "0xb54fc",
+      "cave": "0xb54fc",
+      "words": 5,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb54c0 (sret5)",
+      "inplace": true
+    },
+    "UB14": {
+      "hook": "0xb66ac",
+      "cave": "0xb66ac",
+      "words": 5,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb6670 (sret5)",
+      "inplace": true
+    },
+    "UB15": {
+      "hook": "0xb798c",
+      "cave": "0xb798c",
+      "words": 5,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb7950 (sret5)",
+      "inplace": true
+    },
+    "UB16": {
+      "hook": "0xb5810",
+      "cave": "0xb5810",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb57d0 (direct2)",
+      "inplace": true
+    },
+    "UB17": {
+      "hook": "0xb6170",
+      "cave": "0xb6170",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb6130 (direct2)",
+      "inplace": true
+    },
+    "UB18": {
+      "hook": "0xb63dc",
+      "cave": "0xb63dc",
+      "words": 2,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb63a0 (direct2)",
+      "inplace": true
+    },
+    "UB19": {
+      "hook": "0xb5030",
+      "cave": "0xb5030",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb4ff0 (b4ff0)",
+      "inplace": true
+    },
+    "UB20": {
+      "hook": "0xb5bf0",
+      "cave": "0xb5bf0",
+      "words": 1,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL-safe buddy handle helper 0xb5bc0 (tramp)",
+      "inplace": true
+    },
+    "UB20P": {
+      "hook": "0xb5be4",
+      "cave": "0xb5be4",
+      "words": 3,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL check in the padding before 0xb5bc0",
+      "inplace": true
+    },
+    "UE": {
+      "hook": "0x305adc",
+      "cave": "0x305adc",
+      "words": 24,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "partner-enabled force flag +0xF0 (UE)",
+      "inplace": true
+    },
+    "UM": {
+      "hook": "0xa98b84",
+      "cave": "0xa98b84",
+      "words": 4,
+      "variants": [
+        "addon",
+        "catch",
+        "main"
+      ],
+      "scratch": "none; NULL partner model -> early return of 0xa98b40",
+      "inplace": true
+    },
+    "OSTR": {
+      "hook": "0x0",
+      "cave": "0x70e360",
+      "words": 3548,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; option labels, tables and strings"
+    },
+    "OB1": {
+      "hook": "0x4276c",
+      "cave": "0x711ad0",
+      "words": 16,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OB2": {
+      "hook": "0x42804",
+      "cave": "0x711b10",
+      "words": 69,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OTX": {
+      "hook": "0x44dd4",
+      "cave": "0x711c28",
+      "words": 47,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OTG": {
+      "hook": "0x3f8d4",
+      "cave": "0x711ce8",
+      "words": 47,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OAR": {
+      "hook": "0x452d0",
+      "cave": "0x711da8",
+      "words": 23,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "ODS": {
+      "hook": "0x3ebc0",
+      "cave": "0x711e08",
+      "words": 17,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OLD": {
+      "hook": "0x3b37c",
+      "cave": "0x711e50",
+      "words": 17,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OAP": {
+      "hook": "0x3b404",
+      "cave": "0x711e98",
+      "words": 11,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OCH": {
+      "hook": "0x3f494",
+      "cave": "0x711ec8",
+      "words": 13,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OLK": {
+      "hook": "0x67877c",
+      "cave": "0x6f6890",
+      "words": 43,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OPQ": {
+      "hook": "0x83be70",
+      "cave": "0x6f6940",
+      "words": 13,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "ODI": {
+      "hook": "0x3e930",
+      "cave": "0x6f6978",
+      "words": 6,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OGW1": {
+      "hook": "0x305964",
+      "cave": "0x711f00",
+      "words": 22,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OGW2": {
+      "hook": "0x3057e8",
+      "cave": "0x711f58",
+      "words": 21,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OGB": {
+      "hook": "0x2fdf64",
+      "cave": "0x711fb0",
+      "words": 18,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OFNB": {
+      "hook": "0x3059a0",
+      "cave": "0x6f6990",
+      "words": 348,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; a relocated copy of the game function the base disables (used when wild battles are switched off)"
+    },
+    "OEVS": {
+      "hook": "0x289bb0",
+      "cave": "0x711ff8",
+      "words": 4,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OEC": {
+      "hook": "0x28cb40",
+      "cave": "0x712008",
+      "words": 6,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OEE": {
+      "hook": "0x28beb4",
+      "cave": "0x712020",
+      "words": 7,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OEF": {
+      "hook": "0x28bf4c",
+      "cave": "0x712040",
+      "words": 7,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OXG": {
+      "hook": "0xa67e20",
+      "cave": "0x712060",
+      "words": 26,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "ONG": {
+      "hook": "0xaa0d3c",
+      "cave": "0x7120c8",
+      "words": 22,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OTM": {
+      "hook": "0x28bf64",
+      "cave": "0x712120",
+      "words": 18,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OXFG": {
+      "hook": "0x82d3c0",
+      "cave": "0x712168",
+      "words": 20,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OXGG": {
+      "hook": "0x8303e0",
+      "cave": "0x7121b8",
+      "words": 20,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "OQG": {
+      "hook": "0xf9824c",
+      "cave": "0x712208",
+      "words": 37,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "TE": {
+      "hook": "0xf83820",
+      "cave": "0x7122a0",
+      "words": 40,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "options layer"
+    },
+    "CMF": {
+      "hook": "0x0",
+      "cave": "0x6f6f00",
+      "words": 13,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; pane lookup by hash (caught marker)"
+    },
+    "CM": {
+      "hook": "0xac2530",
+      "cave": "0x6f6f38",
+      "words": 232,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; caught marker beside the wild HP box"
+    },
+    "OBA": {
+      "hook": "0x4497c",
+      "cave": "0x6f72d8",
+      "words": 6,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; A on the page button"
+    },
+    "OBP": {
+      "hook": "0x44854",
+      "cave": "0x6f72f0",
+      "words": 5,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; A on the page button"
+    },
+    "OBD": {
+      "hook": "0x3ef14",
+      "cave": "0x6f7308",
+      "words": 11,
+      "variants": [
+        "addon",
+        "main"
+      ],
+      "scratch": "none; A on the page button"
+    }
+  },
+  "outputs": {
+    "unified": {
+      "path": "mods/Eevee/Wild Battles Remastered/exefs/wild_battles_remastered.pchtxt",
+      "records": 126,
+      "sha256": "95fa29c0664a302643624f35c9a507c95432c9053deb139e2ce8713f571a26f0"
+    },
+    "ips32": {
+      "path": "atmosphere/exefs_patches/Wild Battles Remastered/<build-id>.ips (in the Atmosphere zip)",
+      "records": 126,
+      "sha256": "c1b604be938240d4998405fc462e38ad1fa14c0619704d1853bc8298d017f09e"
+    }
+  },
+  "options": {
+    "menu_rows": [
+      "wild",
+      "quick",
+      "share",
+      "catch_exp",
+      "timer",
+      "marker",
+      "recall",
+      "trade"
+    ],
+    "trade_evolution": 3,
+    "scripted_vanilla": true,
+    "caught_marker": true,
+    "cfg_bits": {
+      "wild": [
+        20,
+        1
+      ],
+      "quick": [
+        21,
+        2
+      ],
+      "share": [
+        23,
+        2
+      ],
+      "catch_exp": [
+        25,
+        1
+      ],
+      "timer": [
+        26,
+        1
+      ],
+      "marker": [
+        27,
+        1
+      ],
+      "recall": [
+        28,
+        1
+      ],
+      "trade": [
+        29,
+        2
+      ]
+    },
+    "defaults": {
+      "wild": 1,
+      "quick": 1,
+      "share": 0,
+      "catch_exp": 0,
+      "timer": 0,
+      "marker": 1,
+      "recall": 0,
+      "trade": 0
+    },
+    "region": [
+      "0x70e360",
+      "0x7123b0"
+    ],
+    "region_sha256": "ff3b4e37d98421e620ef751481a6f75f9e322fd948234e68b63debf15eb73596"
+  }
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Wild Battles Remastered icon">
+  <title>Wild Battles Remastered</title>
+  <desc>Original abstract app icon: an energy ring around a battle spark with rising EXP motes. Same palette as banner.svg. No copyrighted game art.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#132238"/>
+      <stop offset="1" stop-color="#0B1120"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#34D399" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#FACC15"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="216" fill="url(#bg)"/>
+  <circle cx="512" cy="540" r="380" fill="url(#glow)"/>
+  <!-- energy ring with two gaps (two sides facing off) -->
+  <path d="M 512 220 A 320 320 0 0 1 812 430" fill="none" stroke="url(#ring)" stroke-width="58" stroke-linecap="round"/>
+  <path d="M 826 600 A 320 320 0 0 1 300 780" fill="none" stroke="url(#ring)" stroke-width="58" stroke-linecap="round"/>
+  <path d="M 230 690 A 320 320 0 0 1 400 240" fill="none" stroke="url(#ring)" stroke-width="58" stroke-linecap="round" opacity="0.85"/>
+  <!-- central four-point battle spark -->
+  <path d="M 512 330 C 540 470 570 500 700 540 C 570 580 540 610 512 750 C 484 610 454 580 324 540 C 454 500 484 470 512 330 Z" fill="url(#spark)"/>
+  <circle cx="512" cy="540" r="34" fill="#FFFFFF"/>
+  <!-- rising EXP motes -->
+  <circle cx="770" cy="250" r="30" fill="#FACC15"/>
+  <circle cx="840" cy="170" r="20" fill="#FACC15" opacity="0.85"/>
+  <circle cx="700" cy="160" r="14" fill="#FACC15" opacity="0.7"/>
+</svg>

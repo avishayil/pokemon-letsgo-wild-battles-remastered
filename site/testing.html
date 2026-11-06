@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+  <title>Testing | Wild Battles Remastered</title>
+  <meta name="description" content="What has been tested in Wild Battles Remastered for Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!, what was tested during development, and what still needs testers.">
+  <link rel="canonical" href="{{SITE_URL}}testing.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Testing | Wild Battles Remastered">
+  <meta property="og:description" content="Every check was played live on the released mod, with EXP read from the saved game. The page also lists what still needs testing.">
+  <meta property="og:url" content="{{SITE_URL}}testing.html">
+</head>
+<body>
+{{> sprite}}
+
+{{> header active=testing}}
+
+<main id="main" class="doc doc-wide">
+  <div class="container">
+    <span class="kicker">Testing</span>
+    <h1 class="mt-2">How v{{VERSION}} was tested</h1>
+    <p class="lede">Every check below was played live, in a real save file, in Let's Go, Pikachu! and Let's Go, Eevee! For most of them we read EXP, levels, catches and Poké Ball counts from the saved game before and after the test instead of trusting what the screen said; the checks of the final build note where they used the screen.</p>
+
+    <ul class="stats" aria-label="Test summary">
+      <li class="stat ok"><b>50</b><span>checks passed in live play, in both games</span></li>
+      <li class="stat dev"><b>3</b><span>passed during development, not yet re-run on this release</span></li>
+      <li class="stat todo"><b>8</b><span>areas that still need testers</span></li>
+    </ul>
+
+    <div class="callout" role="note">
+      <svg aria-hidden="true" width="26" height="26"><use href="#i-info"/></svg>
+      <div>
+        <strong>Test setup</strong>
+        <ul>
+          <li><b>Mod:</b> v{{VERSION}} from the <a href="{{RELEASE_URL}}">release page</a>: <code>{{ZIP_NAME}}</code> and <code>{{ZIP_EEVEE_NAME}}</code>. The first sections were played on earlier v{{VERSION}} builds; the final build, with the settings page, was played again in both games (see below).</li>
+          <li><b>Games:</b> Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!, each with the 1.0.2 update, on the <a href="https://git.eden-emu.dev/eden-emu/eden">Eden</a> emulator for macOS, keyboard controls.</li>
+          <li><b>Story:</b> Pikachu from the early routes through Mt. Moon to Cerulean City; Eevee from a brand-new game through Route 1 and Pallet Town. Last test run: 6 November 2026.</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="legend" aria-label="Status key">
+      <li><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span> tested on the released v{{VERSION}}</li>
+      <li><span class="status dev"><svg aria-hidden="true" width="16" height="16"><use href="#i-info"/></svg>Development</span> passed on a development build, not yet re-run on this release</li>
+      <li><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span> help wanted</li>
+    </ul>
+
+    <p class="mt-6">The next five sections were played in <b>Let's Go, Pikachu!</b>.</p>
+    <h2 id="wild" class="mt-4">Wild battles and EXP</h2>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Knocked out a wild Pokémon</td><td>It fainted and the battle ended. Only the Pokémon that fought earned EXP (for example Pikachu +59 against a Lv. 10 Geodude); the rest of the team got 0.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Several wild knockouts in a row</td><td>Each battle paid the right Pokémon, every time.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Brought a wild Pokémon to 25% HP or less, then knocked it out instead of catching</td><td>A normal knockout: it fainted, the battler earned EXP, nothing was caught.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Switched Pokémon mid-battle, then knocked the wild one out</td><td>Both Pokémon that fought earned EXP; the rest got 0.</td><td><span class="status dev"><svg aria-hidden="true" width="16" height="16"><use href="#i-info"/></svg>Development</span></td></tr>
+          <tr><td>Evolved right after a wild battle</td><td>The level-up evolution played (Metapod into Butterfree).</td><td><span class="status dev"><svg aria-hidden="true" width="16" height="16"><use href="#i-info"/></svg>Development</span></td></tr>
+          <tr><td>Watched a wild Pokémon faint</td><td>It falls with its cry. No "return to ball" animation.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Stayed in one wild battle for over 5 minutes</td><td>No battle timer ran out.</td><td><span class="status dev"><svg aria-hidden="true" width="16" height="16"><use href="#i-info"/></svg>Development</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="catching">Catching with <kbd>Y</kbd></h2>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Pressed <kbd>Y</kbd> with the wild Pokémon at 25% HP or less</td><td>The game's catch scene opened on the first press.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>Y</kbd> above 25% HP</td><td>The normal <kbd>Y</kbd> view, no catch.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Caught two wild Pokémon in a row</td><td>Each catch opened on the first <kbd>Y</kbd>; nothing carried over between battles.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Switched Pokémon, then caught</td><td>Worked the same as without switching.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>A ball missed or the Pokémon broke free</td><td>The catch scene carried on; the next ball caught it.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>The wild Pokémon ran away from the catch scene</td><td>The game's own "ran away!" message, then back to the overworld, with no EXP and no freeze.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>Y</kbd> with no Poké Balls left</td><td>The game's own "You don't have a single Poké Ball left!" message, then back to the overworld without a freeze.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Watched for "Got away safely!" before the catch scene</td><td>It never appeared.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>Y</kbd> in a Trainer battle</td><td>The normal <kbd>Y</kbd> view. You can't catch a Trainer's Pokémon.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="no-catch-exp">Catching gives no EXP</h2>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Caught more than ten wild Pokémon with <kbd>Y</kbd></td><td>Every Pokémon in the party got 0 EXP. The catch card showed "Exp. Points 0" and the EXP screen was skipped (an empty party bar shows for a moment).</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>A regular Let's Go catch in the overworld</td><td>Also 0 EXP for everyone. Tested with only the mod's no-catch-EXP part turned on, since the full mod turns wild encounters into battles.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Candy from catching, then used a candy</td><td>The candy reward still showed, and a candy still raised a level.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="trainers">Trainer and story battles</h2>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Won Trainer battles with a full team</td><td>Only the Pokémon that fought earned EXP; the rest got 0.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Leveled up from battle EXP</td><td>Normal level-ups (Rattata to Lv. 13, Pikachu to Lv. 18).</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>The Jessie &amp; James double battle at Mt. Moon</td><td>Both Pokémon we sent out earned EXP (+148 and +124); the other four got 0.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Team Rocket and the other Mt. Moon story battles</td><td>Played as normal, with the same "only battlers earn EXP" rule.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Knocked out a Trainer's Pokémon</td><td>It returned to its ball, as normal.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Took the Dome Fossil and the Cerulean City gift Bulbasaur</td><td>Both arrived normally; the gift Pokémon came with normal EXP for its level.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="other">Running, losing and saving</h2>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Ran from wild battles, with and without damaging the wild Pokémon first</td><td>A clean escape and 0 EXP.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Lost every Pokémon in a wild battle</td><td>Sent back to the Pokémon Center as normal; levels and EXP kept.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Saved, quit and restarted the game</td><td>Caught Pokémon, EXP, levels and items were all still there.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Walked around and used a Poké Mart without battling</td><td>No EXP changes.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="eevee">In Let's Go, Eevee!</h2>
+    <p>Played on a brand-new game, from the start through Route 1 and Pallet Town, including the moment "Play with Eevee" is unlocked.</p>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Walked into a wild Pokémon on a brand-new save, before "Play with Eevee" was unlocked</td><td>The battle started with the real Eevee, which attacked and took hits normally.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Knocked out a wild Pokémon</td><td>Eevee earned EXP (+12, checked in the saved game).</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>Y</kbd> at 25% HP or less and caught it</td><td>The catch scene opened on the first press; Rattata joined the party; Eevee got 0 EXP; exactly one Poké Ball was used.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Ran from a wild battle</td><td>A clean escape and 0 EXP.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Lost every Pokémon in a wild battle</td><td>Sent home and healed, as the game does before the Viridian City Pokémon Center opens. No crash.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Saved after those battles</td><td>The game's own "Play with Eevee" setting stayed off, so the story unlocks it at the normal time.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Saved, quit and restarted the game</td><td>Everything was still there, and the mod loaded fully again.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Battled after unlocking "Play with Eevee"</td><td>A normal battle; the mod left the unlocked setting alone.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="recheck">Re-checked on the updated build (Pikachu)</h2>
+    <p>Adding Eevee support changed the mod file for both games, so the updated Let's Go, Pikachu! build was played again.</p>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Started the game</td><td>Every one of the mod's changes was loaded in the running game.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Knocked out a wild Pokémon</td><td>Only the battler earned EXP (Pikachu +42); the rest of the team got 0.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Caught a wild Pokémon with <kbd>Y</kbd></td><td>Everyone got 0 EXP; two throws used exactly two Poké Balls.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Beat the rival in a Trainer battle</td><td>Only Pikachu, the one that fought, earned EXP (+219, up to Lv. 19); the rest got 0.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="final">The final build, with the settings page (both games)</h2>
+    <p>The settings page changed the mod file for both games, so the final build was played again in each. Before each run we checked that every one of the mod's changes was loaded in the running game. The EXP numbers in this section are the game's own messages.</p>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">What we did</th><th scope="col">What happened</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Opened Options and pressed left or right on <b>Wild Battles Settings</b>, in both games</td><td>The mod's page opened with the saved choices (Pikachu) and the starting values (Eevee); <kbd>B</kbd> went back.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>A</kbd> on <b>Wild Battles Settings</b>, in both games</td><td>The mod's page opened. <kbd>A</kbd> on the game's own buttons (Pokémon GO and Controller Settings) still opened their screens, and <kbd>A</kbd> on an ordinary row still did nothing.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Quit and restarted Let's Go, Pikachu!</td><td>The settings chosen earlier were all still set.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Opened Options right after a wild battle</td><td>It opened on the game's own Options page, as it should.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Quick Catch at 50%: pressed <kbd>Y</kbd> above and then at or below half HP</td><td>Above half HP, the normal <kbd>Y</kbd> view; at or below, the catch scene.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Exp. Share at Trainers: a wild battle, then a Trainer battle</td><td>In the wild battle only Pikachu earned EXP (+60); after the Trainer battle the whole party did.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Battle Timer On (Pikachu) and Off (Eevee)</td><td>The 5-minute timer showed with On and not with Off.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Caught Marker Off (Pikachu) and On (Eevee)</td><td>No marker with Off; with On, a Poké Ball beside the HP box of a species already caught.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Return to Ball Off</td><td>No recall animation when the wild Pokémon fainted.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Knocked out a wild Pokémon in Let's Go, Eevee!</td><td>Only Eevee earned EXP (+16, up to Lv. 6, learning Quick Attack).</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>Pressed <kbd>Y</kbd> at 25% HP or less in Let's Go, Eevee!</td><td>The catch scene opened.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+          <tr><td>A Trainer battle in Let's Go, Eevee!</td><td>It started and ended normally; only Eevee, the one that fought, earned EXP, and Pidgey in the party got none.</td><td><span class="status ok"><svg aria-hidden="true" width="16" height="16"><use href="#i-check"/></svg>Passed</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="help-wanted">Not tested yet: help wanted</h2>
+    <p>These haven't been played with v{{VERSION}} yet. If you try one, please tell us how it went, even if everything worked.</p>
+    <div class="table-wrap">
+      <table class="tests">
+        <thead><tr><th scope="col">Area</th><th scope="col">What to try</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Legendary and special encounters</td><td>Snorlax, the legendary birds, Mewtwo and the Power Plant Electrode. <b>Save first.</b></td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>The rest of the story</td><td>Let's Go, Pikachu! after Cerulean City, and Let's Go, Eevee! after Pallet Town: later gyms, Silph Co., Victory Road, the Elite Four and the post-game.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td><kbd>Y</kbd> in a Let's Go, Eevee! Trainer battle</td><td>The normal <kbd>Y</kbd> view (you can't catch a Trainer's Pokémon).</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>A new Let's Go, Pikachu! game</td><td>Wild battles before "Play with Pikachu" is unlocked. It uses the same fix that was tested in Eevee.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>Other platforms</td><td>Eden on Windows, Linux or Android, and other platforms that load IPSwitch (<code>.pchtxt</code>) patches.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>Controllers</td><td>Catching with <kbd>Y</kbd> on a gamepad or Joy-Con. Tested with a keyboard only.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>Real Switch (Atmosphère)</td><td>The Atmosphère download on a modded Switch. It's the same patch as the Eden mod, checked byte for byte.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>Settings page in other languages</td><td>The mod's settings page in French, Italian, German, Spanish, Korean, Japanese and Chinese (our translations; corrections welcome).</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+          <tr><td>The three development-only checks above</td><td>Switching then knocking out, evolving after a wild battle, and staying over 5 minutes in a battle, re-run on v{{VERSION}}.</td><td><span class="status todo"><svg aria-hidden="true" width="16" height="16"><use href="#i-alert"/></svg>Not tested</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="how">How the testing works</h2>
+    <ul>
+      <li>We save before and after each test and compare the two saved games, so every EXP number above is what the game actually stored.</li>
+      <li>Testing uses the published zip, and we confirm the mod's changes are loaded in the running game before trusting a result.</li>
+      <li>A script generates the mod file and refuses to produce a patch unless its safety checks pass, and the <a href="{{REPO_URL}}/actions">automated tests</a> run on every update to the code.</li>
+    </ul>
+
+    <div class="final mt-7">
+      <h2 class="mt-0">Help us test</h2>
+      <p>Tried something from the list above, or found a problem? Open an issue and tell us what you did, what happened, your platform and the mod version. Screenshots help a lot.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="{{REPO_URL}}/issues/new"><svg aria-hidden="true"><use href="#i-github"/></svg> Send a test report</a>
+        <a class="btn btn-ghost" href="install.html">Read the install guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{> footer active=testing}}
+</body>
+</html>

@@ -1,0 +1,47 @@
+name: CI
+
+# Offline validation only: this workflow never needs game files (text.bin / NSO / keys / saves).
+# It checks the generator's logic against a synthesized image and the committed mod against the
+# manifest.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # shellcheck comes preinstalled on GitHub's Ubuntu runners
+      - name: Install capstone and ruff
+        run: python -m pip install --upgrade pip capstone ruff
+
+      - name: Guard — no game files may be tracked
+        run: |
+          set -e
+          TRACKED_GAME_FILES=$(git ls-files | grep -E '(^|/)(text\.bin|main_dec\.bin)$|\.(nso|nca|nsp|xci|tik|sav)$|prod\.keys$' || true)
+          if [ -n "$TRACKED_GAME_FILES" ]; then
+            echo "::error::game-derived files are tracked:"; echo "$TRACKED_GAME_FILES"; exit 1
+          fi
+          echo "clean: no game files, keys or saves tracked"
+
+      - name: Lint Python (ruff.toml)
+        run: ruff check .
+
+      - name: Lint shell scripts
+        run: shellcheck tools/*.sh
+
+      - name: Tests (every tests/*.py, game-file-free)
+        run: |
+          for test_script in tests/*.py; do
+            echo "== $test_script"
+            python -I "$test_script" || exit 1
+          done

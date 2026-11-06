@@ -1,0 +1,19 @@
+# Python / packaging / website build
+_site/
+__pycache__/
+*.pyc
+dist/
+build/
+*.spec
+
+# Game files and keys: never commit these (see docs/BUILDING.md)
+game-files/
+text.bin
+main_dec.bin
+*.nso
+*.nca
+*.nsp
+*.xci
+*.tik
+prod.keys
+*.sav

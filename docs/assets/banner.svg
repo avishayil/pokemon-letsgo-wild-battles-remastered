@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 420" width="1240" height="420" role="img" aria-label="Wild Battles Remastered — Fight wild Pokemon, earn real EXP, catch what you battle">
+  <title>Wild Battles Remastered</title>
+  <desc>Abstract banner: two stylized creature silhouettes facing off with an energy burst and rising EXP motes. No copyrighted game art.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="0.55" stop-color="#132238"/>
+      <stop offset="1" stop-color="#0B1120"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#34D399" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#22D3EE" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#FACC15"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="body1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E415F"/>
+      <stop offset="1" stop-color="#0B1A2C"/>
+    </linearGradient>
+    <linearGradient id="body2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B4A4A"/>
+      <stop offset="1" stop-color="#0B1A2C"/>
+    </linearGradient>
+    <style>
+      .t { font-family: 'Inter','Montserrat','Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1240" height="420" rx="18" fill="url(#bg)"/>
+  <g stroke="#22D3EE" stroke-opacity="0.05" stroke-width="1">
+    <path d="M0 105 H1240 M0 210 H1240 M0 315 H1240 M310 0 V420 M620 0 V420 M930 0 V420"/>
+  </g>
+
+  <!-- ===== right: abstract battle scene ===== -->
+  <ellipse cx="950" cy="200" rx="320" ry="240" fill="url(#glow)"/>
+  <ellipse cx="950" cy="336" rx="300" ry="42" fill="none" stroke="url(#arc)" stroke-width="3"/>
+  <ellipse cx="950" cy="336" rx="205" ry="25" fill="none" stroke="url(#arc)" stroke-width="2" opacity="0.6"/>
+  <path d="M905 330 C847 330 815 299 815 256 C815 215 837 184 873 178
+           C867 152 885 128 906 130 C901 152 913 166 931 170
+           C962 182 979 213 979 254 C979 299 963 330 905 330 Z"
+        fill="url(#body1)" stroke="#34D399" stroke-width="3.5" stroke-opacity="0.95"/>
+  <circle cx="951" cy="220" r="7.5" fill="#6EE7B7"/>
+  <path d="M1088 328 C1052 328 1032 305 1032 276 C1032 249 1048 228 1071 226
+           C1067 206 1083 193 1099 197 C1097 210 1105 218 1117 222
+           C1134 231 1144 252 1144 277 C1144 306 1123 328 1088 328 Z"
+        fill="url(#body2)" stroke="#22D3EE" stroke-width="3.5" stroke-opacity="0.95"/>
+  <circle cx="1054" cy="262" r="5.5" fill="#67E8F9"/>
+  <g transform="translate(1004,250)">
+    <path d="M0 -48 L12 -15 L46 -17 L18 6 L31 42 L0 19 L-31 42 L-18 6 L-46 -17 L-12 -15 Z" fill="url(#spark)"/>
+    <circle r="11" fill="#FFFFFF"/>
+    <circle r="22" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  </g>
+  <g stroke="#F8FAFC" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round">
+    <path d="M990 298 l-26 10"/><path d="M1016 305 l-22 14"/><path d="M999 317 l-18 9"/>
+  </g>
+  <g fill="#FACC15">
+    <circle cx="1006" cy="150" r="6.5" opacity="0.95"/>
+    <circle cx="1044" cy="116" r="4.5" opacity="0.8"/>
+    <circle cx="966"  cy="100" r="5" opacity="0.72"/>
+    <circle cx="1026" cy="74"  r="3.5" opacity="0.6"/>
+    <circle cx="986"  cy="56"  r="3.5" opacity="0.5"/>
+    <circle cx="1062" cy="166" r="3" opacity="0.7"/>
+  </g>
+
+  <!-- ===== left: title block ===== -->
+  <text class="t" x="80" y="146" font-size="68" font-weight="800" fill="#F8FAFC" letter-spacing="1.5">WILD BATTLES</text>
+  <text class="t" x="80" y="226" font-size="56" font-weight="800" fill="#FACC15" letter-spacing="2">REMASTERED</text>
+  <rect x="84" y="240" width="392" height="6" rx="3" fill="#FACC15" opacity="0.85"/>
+  <text class="t" x="84" y="286" font-size="21" font-weight="600" fill="#CBD5E1">Fight wild Pok&#233;mon, earn real EXP, and catch what you battle.</text>
+
+  <!-- feature chips -->
+  <g class="t" font-size="16" font-weight="600">
+    <g transform="translate(84,318)">
+      <rect width="138" height="34" rx="17" fill="#132238" stroke="#22D3EE" stroke-opacity="0.45"/>
+      <text x="69" y="22" text-anchor="middle" fill="#A5F3FC">Turn-Based</text>
+    </g>
+    <g transform="translate(232,318)">
+      <rect width="84" height="34" rx="17" fill="#132238" stroke="#FACC15" stroke-opacity="0.45"/>
+      <text x="42" y="22" text-anchor="middle" fill="#FDE68A">Real EXP</text>
+    </g>
+    <g transform="translate(326,318)">
+      <rect width="108" height="34" rx="17" fill="#132238" stroke="#34D399" stroke-opacity="0.45"/>
+      <text x="54" y="22" text-anchor="middle" fill="#A7F3D0">Catching</text>
+    </g>
+    <g transform="translate(444,318)">
+      <rect width="118" height="34" rx="17" fill="#132238" stroke="#CBD5E1" stroke-opacity="0.35"/>
+      <text x="59" y="22" text-anchor="middle" fill="#E2E8F0">Evolution</text>
+    </g>
+  </g>
+</svg>

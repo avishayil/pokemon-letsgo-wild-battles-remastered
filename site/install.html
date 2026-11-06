@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+  <title>Install guide | Wild Battles Remastered</title>
+  <meta name="description" content="How to install Wild Battles Remastered for Pokémon: Let's Go, Pikachu! or Let's Go, Eevee! in the Eden emulator, step by step.">
+  <link rel="canonical" href="{{SITE_URL}}install.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Install guide | Wild Battles Remastered">
+  <meta property="og:description" content="Add real turn-based wild battles to Pokémon: Let's Go, Pikachu! or Let's Go, Eevee! in a few minutes.">
+  <meta property="og:url" content="{{SITE_URL}}install.html">
+</head>
+<body>
+{{> sprite}}
+
+{{> header active=install}}
+
+<main id="main" class="doc">
+  <div class="container">
+    <span class="kicker">Install guide</span>
+    <h1 class="mt-2">Install Wild Battles Remastered</h1>
+    <p class="lede">Getting from the download to your first wild battle takes a few minutes. The mod works on platforms that support IPSwitch (<code>.pchtxt</code>) patches, and this guide uses the Eden emulator, where it was built and tested.</p>
+
+    <div class="callout" role="note">
+      <svg aria-hidden="true"><use href="#i-info"/></svg>
+      <div>
+        <strong>You'll need</strong>
+        <ul>
+          <li>Pokémon: Let's Go, Pikachu! or Pokémon: Let's Go, Eevee! from your own legally owned copy, with the <b>1.0.2 update</b> installed in the emulator.</li>
+          <li>A platform that supports IPSwitch (<code>.pchtxt</code>) patches, with the game already running normally. The steps below use the <a href="https://git.eden-emu.dev/eden-emu/eden">Eden</a> emulator.</li>
+          <li>About five minutes. This project includes no game files.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="steps">Step by step</h2>
+    <ol class="big">
+      <li>
+        <h3>Download the mod</h3>
+        <p>Get the zip for your game from the <a href="{{RELEASE_URL}}">v{{VERSION}} release</a>: <code>{{ZIP_NAME}}</code> for Let's Go, Pikachu!, or <code>{{ZIP_EEVEE_NAME}}</code> for Let's Go, Eevee! Each one only works on its own game. Don't unzip it yet.</p>
+        <p class="cta-row tight"><a class="btn btn-primary btn-sm" href="{{ZIP_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Pikachu</a> <a class="btn btn-eevee btn-sm" href="{{ZIP_EEVEE_URL}}"><svg aria-hidden="true"><use href="#i-download"/></svg> Eevee</a></p>
+      </li>
+      <li>
+        <h3>Back up your save</h3>
+        <p>In Eden, right-click your game (<b>Pokémon: Let's Go, Pikachu!</b> or <b>Let's Go, Eevee!</b>) and choose <b>Open Save Data Location</b>. Copy that folder somewhere safe. Always do this before trying a new mod.</p>
+      </li>
+      <li>
+        <h3>Add the mod to the game</h3>
+        <p>Right-click the game again and choose <b>Import Mod from ZIP</b>, then pick the zip you downloaded.</p>
+        <p>Prefer doing it by hand? Choose <b>Open Mod Data Location</b> and unzip the file there. You should end up with <code>Wild Battles Remastered/exefs/wild_battles_remastered.pchtxt</code> inside that folder.</p>
+      </li>
+      <li>
+        <h3>Turn it on</h3>
+        <p>Right-click the game, open <b>Properties → Add-Ons</b>, and make sure <b>Wild Battles Remastered</b> is ticked. Untick any other wild-battle, EXP or catching mod: this one already does all of that.</p>
+      </li>
+      <li>
+        <h3>Play</h3>
+        <p>Start the game and walk into a wild Pokémon. Instead of the usual catching screen, you'll drop into a turn-based battle.</p>
+      </li>
+    </ol>
+
+    <div class="callout" role="note">
+      <svg aria-hidden="true"><use href="#i-info"/></svg>
+      <div>
+        <strong>Using another platform?</strong>
+        <p>Install it the way your platform installs IPSwitch (<code>.pchtxt</code>) patch mods. The zip holds a single patch, <code>Wild Battles Remastered/exefs/wild_battles_remastered.pchtxt</code>, made for game version 1.0.2. Only Eden has been tested so far.</p>
+      </div>
+    </div>
+
+    <h2 id="controls">In a wild battle</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">You do</th><th scope="col">What happens</th></tr></thead>
+        <tbody>
+          <tr><td>Knock the wild Pokémon out</td><td>It faints. The Pokémon that fought earn EXP (real amounts, level-ups, evolutions); the rest of your team gets none. You return straight to the overworld.</td></tr>
+          <tr><td>Bring it to 25% HP or less, then press <kbd>Y</kbd></td><td>You go into the game's own catch scene and throw a ball, under the normal catch rules. A catch gives no EXP. (The HP level is the <b>Quick Catch</b> setting.)</td></tr>
+          <tr><td>Press <kbd>Y</kbd> above that HP</td><td>The normal <kbd>Y</kbd> menu, as in the base game.</td></tr>
+          <tr><td>Select <b>Run</b></td><td>You flee, as in the base game.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Trainer battles play as normal, except that only the Pokémon that fought earn EXP.</p>
+
+    <h2 id="settings">The mod's settings</h2>
+    <p>Open the game's menu, then <b>Options</b>, and go to the last row, <b>Wild Battles Settings</b>. Press <kbd>A</kbd> (or left or right) on it and the mod's own page opens. Change what you like, then press <kbd>B</kbd>: the game asks whether to keep the changes, and you're back on the normal Options page. Your choices are kept in your save.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Setting</th><th scope="col">Choices</th><th scope="col">Starts at</th></tr></thead>
+        <tbody>
+          <tr><td>Wild Battles</td><td>On, or Off for the game's normal catching</td><td>On</td></tr>
+          <tr><td>Quick Catch</td><td>Off, 25%, 50% or Any HP (press <kbd>Y</kbd> at or below that HP)</td><td>25%</td></tr>
+          <tr><td>Exp. Share</td><td>Off (only battlers), Trainers (whole party in Trainer battles), On (whole party)</td><td>Off</td></tr>
+          <tr><td>Catch Exp.</td><td>On, or Off (no EXP from catching)</td><td>Off</td></tr>
+          <tr><td>Battle Timer</td><td>On (the game's 5-minute limit in wild battles) or Off</td><td>Off</td></tr>
+          <tr><td>Caught Marker</td><td>On (a Poké Ball by the HP box of a species you've caught) or Off</td><td>On</td></tr>
+          <tr><td>Return to Ball</td><td>On (the recall animation when a wild Pokémon faints) or Off</td><td>Off</td></tr>
+          <tr><td>Trade Evolution</td><td>Off, Lv. 30, Lv. 40 or Lv. 50 (Kadabra, Machoke, Graveler, Haunter)</td><td>Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="atmosphere">On a real Switch (Atmosphère)</h2>
+    <p>Download the Atmosphère zip for your game (<a href="{{ZIP_ATMO_URL}}">Pikachu</a>, <a href="{{ZIP_EEVEE_ATMO_URL}}">Eevee</a>) and copy its <code>atmosphere</code> folder to the root of your SD card, merging folders. You end up with <code>atmosphere/exefs_patches/Wild Battles Remastered/&lt;build-id&gt;.ips</code>, which Atmosphère applies when the game starts. It's the same patch as the Eden mod in the format Atmosphère loads, but it hasn't been tried on a real Switch yet: please <a href="{{REPO_URL}}/issues">tell us</a> how it goes. Play offline only.</p>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h3>Nothing changed in battles</h3>
+    <p>Check that <b>Wild Battles Remastered</b> is ticked under Add-Ons, that it's the zip for <b>your</b> game (Pikachu and Eevee each have their own), and that the game shows version <b>1.0.2</b> (the update must be installed). Restart the game after changing mods.</p>
+    <h3>Something odd happens in a battle</h3>
+    <p>Turn off every other mod for the game. This mod is self-contained and shouldn't be combined with other wild-battle or EXP mods.</p>
+    <div class="callout warn" role="note">
+      <svg aria-hidden="true"><use href="#i-alert"/></svg>
+      <div>
+        <strong>Before a legendary or special encounter</strong>
+        <p>Snorlax, the legendary birds, Mewtwo and the Power Plant Electrode should play as in the original game, because the mod's battle changes only apply to its own wild battles. Nobody has played one with this beta yet, so save first. See <a href="testing.html">everything that has been tested</a>.</p>
+      </div>
+    </div>
+    <h3>Still stuck?</h3>
+    <p>Open an issue on <a href="{{REPO_URL}}/issues">GitHub</a> and say what you did and what happened.</p>
+
+    <p class="mt-7"><a class="btn btn-ghost" href="./">Back to the home page <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</main>
+
+{{> footer active=install}}
+</body>
+</html>
